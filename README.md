@@ -36,25 +36,6 @@ To view the website locally:
 
 No server required as it's a static site.
 
-## Deployment to GitHub Pages
-
-1. Create a new repository on GitHub named `portfolio-website` (or your preferred name)
-2. Push this code to the repository
-3. Go to the repository Settings
-4. Scroll down to "Pages" section
-5. Under "Source", select "Deploy from a branch"
-6. Choose "main" branch and "/ (root)" folder
-7. Click Save
-8. Your site will be live at `https://yourusername.github.io/portfolio-website/`
-
-## Customization
-
-- **Content**: Edit the HTML files to update text, links, and content
-- **Styling**: Modify `assets/css/style.css` for colors, fonts, layout
-- **Images**: Replace placeholder images in `assets/images/` and update src in HTML
-- **Links**: Update GitHub, LinkedIn, and project links in the respective HTML files
-- **Resume**: Add your resume PDF to `assets/` and update the download link
-
 ## Technologies Used
 
 - HTML5
