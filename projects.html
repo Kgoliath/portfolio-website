@@ -1,83 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Caleigh Goliath</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - Caleigh Goliath</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Ensure neat equal-height cards and tidy grids */
+    .projects-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: stretch; }
+    .project-card { display: flex; flex-direction: column; height: 100%; min-height: 420px; }
+    .project-buttons { margin-top: auto; }
+    .testing-grid { margin-bottom: 10px; }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="nav-container">
-                <h1 class="logo">Caleigh Goliath</h1>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+  <script>
+    try {
+      if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+      }
+    } catch (e) {}
+  </script>
+  <script>
+    // Sync theme toggle checkbox state with saved theme
+    document.addEventListener('DOMContentLoaded', function() {
+      try {
+        if (localStorage.getItem('theme') === 'light') {
+          var t = document.getElementById('theme-toggle');
+          if (t) t.checked = true;
+        }
+      } catch (e) {}
+    });
+  </script>
+  <header>
+    <nav>
+      <div class="nav-container">
+        <input type="checkbox" id="nav-toggle" aria-label="Open navigation">
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </label>
+        <ul class="nav-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About & Skills</a></li>
+          <li><a href="#" class="active">Projects</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <label class="theme-toggle">
+          <span class="toggle-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M21.7,13.3c-0.3-0.2-0.7,0-0.9,0.3c-1.5,3.6-5.2,6.1-9.3,6.1c-5.5,0-10-4.5-10-10c0-4.1,2.5-7.8,6.1-9.3C8,0.1,8.3-0.1,8.5,0.1c0.3,0.2,0.4,0.6,0.3,0.9C8.2,3.1,7.9,5,7.9,6.9c0,3.9,3.2,7.1,7.1,7.1c1.9,0,3.8-0.4,5.8-1.1C21.1,12.8,21.4,12.6,21.7,13.3z"></path></svg>
+          </span>
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"></span>
+          <span class="toggle-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12,8c-2.2,0-4,1.8-4,4s1.8,4,4,4s4-1.8,4-4S14.2,8,12,8z M12,15c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S13.7,15,12,15z M12,3c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1s1-0.4,1-1V4C13,3.4,12.6,3,12,3z M12,17c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1s1-0.4,1-1v-2C13,17.4,12.6,17,12,17z M5.6,6.6C5.2,6.2,4.6,6.2,4.2,6.6C3.8,7,3.8,7.5,4.2,7.9l1.4,1.4C5.8,9.5,6.1,9.6,6.4,9.6s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L5.6,6.6z M16.9,18.4c-0.2,0-0.4,0.1-0.5,0.2l-1.4,1.4c-0.4,0.4-0.4,1,0,1.4C15.2,21.5,15.5,21.6,15.8,21.6s0.5-0.1,0.7-0.3l1.4-1.4c0.4-0.4,0.4-1,0-1.4C17.3,18.5,17.1,18.4,16.9,18.4z M20,11h-2c-0.6,0-1,0.4-1,1s0.4,1,1,1h2c0.6,0,1-0.4,1-1S20.6,11,20,11z M4,11H2c-0.6,0-1,0.4-1,1s0.4,1,1,1h2c0.6,0,1-0.4,1-1S4.6,11,4,11z M16.9,6.2c0.2,0,0.4-0.1,0.5-0.2l1.4-1.4c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L16.2,5c-0.4,0.4-0.4,1,0,1.4C16.5,6.5,16.7,6.6,16.9,6.6z M7.1,18.4c0.2,0,0.4-0.1,0.5-0.2c0.4-0.4,0.4-1,0-1.4L6.2,15.4c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4l1.4,1.4C6.7,18.5,6.9,18.4,7.1,18.4z"></path></svg>
+          </span>
+        </label>
+      </div>
+    </nav>
+  </header>
 
-    <main class="projects">
-        <section>
-            <h1>My Projects</h1>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/300x200?text=EduBot" alt="EduBot">
-                    <h3>EduBot</h3>
-                    <p>An educational chatbot assisting students with learning support, providing interactive help and resources.</p>
-                    <p><strong>Technologies:</strong> Botpress, Gemini API, NLP</p>
-                    <div class="project-buttons">
-                        <a href="https://github.com/caleighgoliath/edubot" class="btn small">GitHub Repo</a>
-                        <a href="#" class="btn small">View Demo</a>
-                        <a href="#" class="btn small">Read More</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/300x200?text=AI+Study+Assistant" alt="AI Study Assistant">
-                    <h3>AI-Powered Study Assistant</h3>
-                    <p>A smart revision bot that summarizes notes, explains concepts, and creates quizzes for effective learning.</p>
-                    <p><strong>Technologies:</strong> Python, Gemini API, NLP</p>
-                    <div class="project-buttons">
-                        <a href="https://github.com/caleighgoliath/ai-study-assistant" class="btn small">GitHub Repo</a>
-                        <a href="#" class="btn small">View Demo</a>
-                        <a href="#" class="btn small">Read More</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/300x200?text=Marketing+Generator" alt="Marketing Generator">
-                    <h3>Custom Marketing Generator</h3>
-                    <p>A content automation tool using Google Apps Script and Gemini API for generating marketing materials.</p>
-                    <p><strong>Technologies:</strong> Google Apps Script, Gemini API, Automation</p>
-                    <div class="project-buttons">
-                        <a href="https://github.com/caleighgoliath/marketing-generator" class="btn small">GitHub Repo</a>
-                        <a href="#" class="btn small">View Demo</a>
-                        <a href="#" class="btn small">Read More</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/300x200?text=AI+Tools" alt="AI Tools">
-                    <h3>AI Tools Suite</h3>
-                    <p>Collection of AI tools including Resume Builder, Bias Report, Sentiment Analysis, and Meeting Summarizer.</p>
-                    <p><strong>Technologies:</strong> Python, TensorFlow, Scikit-learn</p>
-                    <div class="project-buttons">
-                        <a href="https://github.com/caleighgoliath/ai-tools-suite" class="btn small">GitHub Repo</a>
-                        <a href="#" class="btn small">View Demo</a>
-                        <a href="#" class="btn small">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+  <main>
+    <section id="projects" class="reveal">
+      <h1>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M4 10h3v10H4zM10 10h3v10h-3zM16 10h3v10h-3zM22 6H2V4h20zM12 1c-4.4 0-8 1.8-8 4v1h16V5c0-2.2-3.6-4-8-4z"></path></svg>
+        Projects
+      </h1>
+      <div class="cert-actions" style="margin-bottom: 20px;">
+        <a href="index.html#projects" class="btn secondary">← Back to Main Page</a>
+      </div>
 
-    <footer>
-        <p>&copy; 2025 Caleigh Goliath. All rights reserved.</p>
-    </footer>
+      <h2>Software Testing Projects</h2>
+      <div class="projects-grid testing-grid">
+        <div class="project-card" style="border:2px solid #3C37FF;">
+          <div class="project-tag">Software Testing</div>
+                    <h3>OrangeHRM Test Automation Framework</h3>
+          <p>Built a Selenium WebDriver testing framework using Python and Page Object Model to automate bug verification for enterprise HR software. Emphasizes QA methodologies, automation best practices, and professional reporting.</p>
+          <p><strong>Key features:</strong> Automated bug verification, Page Object Model design, professional HTML test reporting</p>
+          <p><strong>Tech:</strong> Python, Selenium WebDriver, pytest, POM, HTML Reporting</p>
+          <div class="project-buttons">
+            <a href="https://github.com/Kgoliath/orangehrm-automation" class="btn small" target="_blank" rel="noopener noreferrer">🔗 GitHub Repository</a>
+          </div>
+        </div>
+      </div>
 
-    <script src="assets/js/script.js"></script>
+      <h2>AI Development Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-tag">AI Integration</div>
+          <h3>Meeting Analysis AI Application</h3>
+          <p>An AI-driven web app that transcribes, summarizes, and analyzes meeting sentiment. Experience here translates into testing AI pipelines and validating end-to-end accuracy.</p>
+          <p><strong>Tech:</strong> Python (Flask), Assembly AI, Cohere, Hugging Face, ReportLab, SQLite</p>
+          <div class="project-buttons">
+            <a href="https://github.com/Kgoliath/meeting_summarizer" class="btn small" target="_blank" rel="noopener noreferrer">🔗 GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-tag">Full-Stack</div>
+          <h3>AI Resume Builder</h3>
+          <p>A full-stack AI-powered resume builder. Experience from this project supports designing tests for complex UI/API integrations and validating AI-generated outputs against requirements.</p>
+          <p><strong>Tech:</strong> React, Node.js, Express, Gemini API, Railway, Vercel</p>
+          <div class="project-buttons">
+            <a href="https://github.com/Kgoliath/ai-resume-builder" class="btn small" target="_blank" rel="noopener noreferrer">🔗 GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-tag">NLP</div>
+          <h3>Sentiment Analysis Dashboard</h3>
+          <p>A Streamlit dashboard for sentiment analysis. Insights here help in testing ML classification pipelines and verifying model outputs and reporting.</p>
+          <p><strong>Tech:</strong> Streamlit, Hugging Face API, Pandas, Plotly</p>
+          <div class="project-buttons">
+            <a href="https://github.com/Kgoliath/sentiment-analysis-project" class="btn small" target="_blank" rel="noopener noreferrer">🔗 GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-tag">Chatbot</div>
+          <h3>EduBot – Educational Chatbot</h3>
+          <p>An interactive AI chatbot that supports topic-based learning. This informs testing strategies for conversational flows and knowledge retrieval accuracy.</p>
+          <p><strong>Tech:</strong> Botpress Cloud, NLP, JSON Flows</p>
+          <div class="project-buttons">
+            <a href="https://github.com/Kgoliath/ai-chatbot-edubot" class="btn small" target="_blank" rel="noopener noreferrer">🔗 GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-tag">Study Tool</div>
+          <h3>AI-Powered Study Assistant</h3>
+          <p>A smart study chatbot for summarization and quizzes. Useful background for testing content generation quality and user interactions.</p>
+          <p><strong>Tech:</strong> Botpress, GPT-based LLM, Figma, Webchat Integration</p>
+          <div class="project-buttons">
+            <a href="https://github.com/Kgoliath/ai-study-assistant" class="btn small" target="_blank" rel="noopener noreferrer">🔗 GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-tag">Automation</div>
+          <h3>Custom Marketing Generator</h3>
+          <p>A no-code generative AI tool for marketing content. Helps define tests for prompt engineering, rate limiting, and output validation.</p>
+          <p><strong>Tech:</strong> Google Sheets, Apps Script, HTML/JavaScript, Gemini API</p>
+          <div class="project-buttons">
+            <a href="https://github.com/Kgoliath/custom-marketing-content-generator" class="btn small" target="_blank" rel="noopener noreferrer">🔗 GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Caleigh Goliath. All rights reserved.</p>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
